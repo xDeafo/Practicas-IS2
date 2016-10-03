@@ -6,19 +6,19 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Ventura
  */
 public class Equipo {
+
     private static int CONTIDEQUIPO = 0;
-    
+
     private int idEquipo;
     private String nombre;
     private float importeCaja;
     private int numAbonados;
-    private ArrayList<Jugador> plantilla; 
+    private ArrayList<Jugador> plantilla;
 
     public Equipo(String nombre, float importeCaja, int numAbonados) {
         this.idEquipo = ++CONTIDEQUIPO;
@@ -55,6 +55,28 @@ public class Equipo {
         this.numAbonados = numAbonados;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        String result = "";
+
+        result += "\nID: " + String.format("%03d", idEquipo);
+        result += "\nNombre: " + nombre;
+        result += "\nImporte en Caja: " + String.format("%.2f", importeCaja) + " €";
+        result += "\nNº Abonados: " + String.format("%03d", numAbonados);
+        result += "\nPlantilla: ";
+        for (Jugador j : plantilla) {
+            result += "\n     " + j.toString();
+        }
+        result += "\n------------------------------------------------------";
+        
+        return result;
+    }
+
+    public void anyadirJugador(Jugador jugador) {
+        this.plantilla.add(jugador);
+    }
+
+    public void eliminarJugador(Jugador jugador) {
+        this.plantilla.remove(jugador);
+    }
 }
