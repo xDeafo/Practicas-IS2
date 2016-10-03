@@ -6,12 +6,14 @@ import java.util.Date;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Usuario
  */
 public class Traspaso {
+
+    private static int CONTIDTRASPASO = 0;
+    
     private String nombreJugador;
     private Date fecha;
     private float importeClausula;
@@ -65,6 +67,22 @@ public class Traspaso {
     public void setDestino(Equipo destino) {
         this.destino = destino;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        String result = "";
+
+        result += "\nID: " + String.format("%03d", idEquipo);
+        result += "\nNombre: " + nombre;
+        result += "\nImporte en Caja: " + String.format("%.2f", importeCaja) + " €";
+        result += "\nNº Abonados: " + String.format("%03d", numAbonados);
+        result += "\nPlantilla: ";
+        for (Jugador j : plantilla) {
+            result += "\n     " + j.toString();
+        }
+        result += "\n------------------------------------------------------";
+
+        return result;
+    }
+
 }
