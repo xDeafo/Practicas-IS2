@@ -14,6 +14,7 @@ public class Traspaso {
 
     private static int CONTIDTRASPASO = 0;
     
+    private int idTraspaso;
     private String nombreJugador;
     private Date fecha;
     private float importeClausula;
@@ -21,6 +22,7 @@ public class Traspaso {
     private Equipo destino;
 
     public Traspaso(String nombreJugador, Date fecha, float importeClausula, Equipo origen, Equipo destino) {
+        this.idTraspaso = ++CONTIDTRASPASO;
         this.nombreJugador = nombreJugador;
         this.fecha = fecha;
         this.importeClausula = importeClausula;
@@ -71,15 +73,13 @@ public class Traspaso {
     @Override
     public String toString() {
         String result = "";
-
-        result += "\nID: " + String.format("%03d", idEquipo);
-        result += "\nNombre: " + nombre;
-        result += "\nImporte en Caja: " + String.format("%.2f", importeCaja) + " €";
-        result += "\nNº Abonados: " + String.format("%03d", numAbonados);
-        result += "\nPlantilla: ";
-        for (Jugador j : plantilla) {
-            result += "\n     " + j.toString();
-        }
+        
+        result += "\nID Traspaso: " + String.format("%03d", idTraspaso);
+        result += "\nNombre del jugador: " + nombreJugador;
+        result += "\nEquipo de origen: " + origen;
+        result += "\nEquipo de destino: " + destino;
+        result += "\nFecha de Traspaso: " + fecha.toString();
+        result += "\nClausula nueva del jugador: " + importeClausula + " €";
         result += "\n------------------------------------------------------";
 
         return result;
