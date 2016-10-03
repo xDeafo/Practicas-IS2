@@ -14,8 +14,10 @@ public class GestorLiga {
 
     private Jugador jugador;
     private Equipo equipo;
+    private Traspaso traspaso;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Equipo> equipos;
+    private ArrayList<Traspaso> traspasos;
 
     public GestorLiga(ArrayList<Jugador> jugadores, ArrayList<Equipo> equipos) {
         this.jugadores = jugadores;
@@ -33,14 +35,21 @@ public class GestorLiga {
     public void registrarEquipo(String nombre, float importeCaja, int numAbonados) {
         this.equipo = new Equipo(nombre, importeCaja, numAbonados);
     }
-    
-    public boolean añadirEquipo(Equipo e){
+
+    public boolean añadirEquipo(Equipo e) {
         return this.equipos.add(e);
     }
-    
-    public void mostrarEquipos(){
-        for(Equipo e: equipos){
+
+    public void mostrarEquipos() {
+        for (Equipo e : equipos) {
             e.toString();
         }
     }
+
+    public void mostrarTraspasos() {
+        for (Traspaso t : traspasos) {
+            t.toString();
+        }
+    }
+
 }
