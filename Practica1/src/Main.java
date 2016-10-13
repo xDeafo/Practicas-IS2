@@ -6,25 +6,63 @@ import java.util.Scanner;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Ventura
  */
 public class Main {
+
     public static void main(String[] args) {
-        String opcion;
-        Scanner entradaEscaner = new Scanner (System.in); //Creación de un objeto Scanner
-        opcion = (entradaEscaner.nextLine());
-        
-        
+        int opcion;
+        String nombreEquipo;
+        GestorLiga gl = new GestorLiga();
+        float importeCaja;
+        int numeroAbonados;
+        Scanner sc = new Scanner(System.in); //Creación de un objeto Scanner
+
+
         System.out.println("Bienvenido a la Liga BBUV");
-        
-        do{
+
+        do {
             System.out.println("Elige una opcion");
+            opcion = sc.nextInt();
             
-            
-        }while(opcion != "7");
+            switch (opcion) {
+
+                case 1:
+                    System.out.println("Introduce los datos del equipo: ");
+                    System.out.println("Nombre del equipo: ");
+                    nombreEquipo = sc.nextLine();
+                    System.out.println("Importe caja: ");
+                    importeCaja = sc.nextFloat();
+                    System.out.println("Nº abonados: ");
+                    numeroAbonados = sc.nextInt();
+                    
+                    Equipo e = new Equipo(nombreEquipo, importeCaja, numeroAbonados);
+                    gl.añadirEquipo(e);
+                    
+                    break;
+
+                case 2:
+
+                    break;
+
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
+            }
+        } while (opcion != "7");
         
+        System.exit(0);
     }
 }

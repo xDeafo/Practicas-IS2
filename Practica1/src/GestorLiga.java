@@ -24,6 +24,10 @@ public class GestorLiga {
         this.equipos = equipos;
     }
 
+    GestorLiga() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void registrarJugador(String nombre, String demarcacion, float importeClausula) {
         this.jugador = new Jugador(nombre, demarcacion, importeClausula);
     }
