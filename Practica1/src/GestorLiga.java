@@ -37,7 +37,16 @@ public class GestorLiga {
         }
         
     }
-    public void mostrarEquipos() {
+    public void mostrarEquiposBasico(){
+         for (Equipo e : equipos) {
+            System.out.println("Nombre del equipo: " + e.getNombre());
+            System.out.println("Nombre del equipo: " + e.getImporteCaja());
+            System.out.println("Nombre del equipo: " + e.getNumAbonados());
+            System.out.println("_____________________________________");
+          
+        }
+    }
+    public void mostrarEquiposCompletos() {
         for (Equipo e : equipos) {
             e.toString();
         }

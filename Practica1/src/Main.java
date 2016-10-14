@@ -28,7 +28,15 @@ public class Main {
         System.out.println("Bienvenido a la Liga BBUV");
 
         do {
-            System.out.println("Elige una opcion");
+            System.out.println("Elige una opcion\n");
+            System.out.println("1. Registrar un nuevo equipo");
+            System.out.println("2. Registrar un nuevo jugador");
+            System.out.println("3. Registrar un traspaso de jugador");
+            System.out.println("4. Listar en pantalla los datos básicos de los equipos registrados");
+            System.out.println("5. Listar los jugadores de cada equipo");
+            System.out.println("6. Mostrar los traspasos realizados");
+            System.out.println("7. Salir del programa");
+            
             opcion = sc.nextInt();
             
             switch (opcion) {
@@ -73,11 +81,11 @@ public class Main {
 
                     break;
                 case 4:
-
+                        gl.mostrarEquiposBasico();
                     break;
 
                 case 5:
-
+                        gl.mostrarEquiposCompletos();
                     break;
                 case 6:
 
