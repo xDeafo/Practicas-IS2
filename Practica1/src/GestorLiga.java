@@ -15,27 +15,12 @@ public class GestorLiga {
     private Jugador jugador;
     private Equipo equipo;
     private Traspaso traspaso;
-    private ArrayList<Jugador> jugadores;
     private ArrayList<Equipo> equipos;
     private ArrayList<Traspaso> traspasos;
 
-    public GestorLiga(ArrayList<Jugador> jugadores, ArrayList<Equipo> equipos) {
-        this.jugadores = jugadores;
-        this.equipos = equipos;
-    }
 
-    GestorLiga() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void registrarJugador(String nombre, String demarcacion, float importeClausula) {
-        this.jugador = new Jugador(nombre, demarcacion, importeClausula);
-    }
-
-    public boolean añadirJugador(Jugador j) {
-        return jugadores.add(j);
-    }
-
+    GestorLiga() {}
+    
     public void registrarEquipo(String nombre, float importeCaja, int numAbonados) {
         this.equipo = new Equipo(nombre, importeCaja, numAbonados);
     }
@@ -43,7 +28,15 @@ public class GestorLiga {
     public boolean añadirEquipo(Equipo e) {
         return this.equipos.add(e);
     }
-
+    public void addJugadorEquipo(Jugador jungador, String nombre){
+        
+        for (Equipo equipo1 : equipos) {
+            if (equipo1.getNombre().equals(nombre)) {
+                equipo1.anyadirJugador(jugador);
+            }
+        }
+        
+    }
     public void mostrarEquipos() {
         for (Equipo e : equipos) {
             e.toString();

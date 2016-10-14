@@ -17,6 +17,10 @@ public class Jugador {
     private int idJugador;
     private String nombre;
 
+    Jugador() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public enum demarcacion {
 
         portero, defensa, medio, delantero
@@ -44,6 +48,10 @@ public class Jugador {
     }
 
     public void setImporteClausula(float importeClausula) {
+        this.importeClausula = importeClausula;
+    }
+    
+     public void setDemarcacion(String demarcacion) {
         this.importeClausula = importeClausula;
     }
 

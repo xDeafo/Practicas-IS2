@@ -15,6 +15,10 @@ public class Main {
     public static void main(String[] args) {
         int opcion;
         String nombreEquipo;
+        String nombreJugador;
+        String demarcacion;
+        String nombreEquipoJugador;
+        float importeClausula;
         GestorLiga gl = new GestorLiga();
         float importeCaja;
         int numeroAbonados;
@@ -44,7 +48,25 @@ public class Main {
                     break;
 
                 case 2:
-
+                    System.out.println("Introduce los datos del jugador: ");
+                    System.out.println("Nombre del judador: ");
+                    nombreJugador = sc.nextLine();
+                    System.out.println("Demarcacion: ");
+                    demarcacion = sc.nextLine();
+                    System.out.println("Importe Clausula: ");
+                    importeClausula = sc.nextFloat();
+                    System.out.println("Nombre del equipo al que pertenece: ");
+                    nombreEquipoJugador = sc.nextLine();
+                    
+                    Jugador j = new Jugador();
+                    
+                    j.setNombre(nombreJugador);
+                    j.setImporteClausula(importeClausula);
+                    j.setDemarcacion(demarcacion);
+                    
+                    gl.addJugadorEquipo(j, nombreEquipoJugador);
+                    
+                    
                     break;
 
                 case 3:
@@ -61,7 +83,7 @@ public class Main {
 
                     break;
             }
-        } while (opcion != "7");
+        } while (opcion != 7);
         
         System.exit(0);
     }
