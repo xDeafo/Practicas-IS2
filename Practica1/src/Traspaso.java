@@ -18,16 +18,20 @@ public class Traspaso {
     private String nombreJugador;
     private Date fecha;
     private float importeClausula;
-    private Equipo origen;
-    private Equipo destino;
+    private String origen;
+    private String destino;
 
-    public Traspaso(String nombreJugador, Date fecha, float importeClausula, Equipo origen, Equipo destino) {
+    public Traspaso(String nombreJugador, Date fecha, float importeClausula, String origen, String destino) {
         this.idTraspaso = ++CONTIDTRASPASO;
         this.nombreJugador = nombreJugador;
         this.fecha = fecha;
         this.importeClausula = importeClausula;
         this.origen = origen;
         this.destino = destino;
+    }
+
+    Traspaso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getNombreJugador() {
@@ -42,11 +46,11 @@ public class Traspaso {
         return importeClausula;
     }
 
-    public Equipo getOrigen() {
+    public String getOrigen() {
         return origen;
     }
 
-    public Equipo getDestino() {
+    public String getDestino() {
         return destino;
     }
 
@@ -62,11 +66,11 @@ public class Traspaso {
         this.importeClausula = importeClausula;
     }
 
-    public void setOrigen(Equipo origen) {
+    public void setOrigen(String origen) {
         this.origen = origen;
     }
 
-    public void setDestino(Equipo destino) {
+    public void setDestino(String destino) {
         this.destino = destino;
     }
 
