@@ -125,7 +125,7 @@ public class GestorLiga {
         }
     }
 
-    private Equipo ExisteEquipo(String nombreEquipo) throws EquipoException {
+    public Equipo ExisteEquipo(String nombreEquipo) throws EquipoException {
         Equipo e = null;
         boolean existe = false;
         for (Equipo equipo1 : equipos) {
@@ -173,4 +173,5 @@ public class GestorLiga {
         
         return cumple;
     }
+   
 }

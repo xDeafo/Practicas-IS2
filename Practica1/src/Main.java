@@ -5,6 +5,7 @@ import Excepciones.JugadorException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -23,8 +24,9 @@ public class Main {
     private static GestorLiga gl = new GestorLiga();
 
     public static void main(String[] args) {
-        int opcion;
+        int opcion = 0;
         String nombreEquipo;
+        String nombreEquipoD;
         String nombreJugador;
         String demarcacion;
         String nombreEquipoJugador;
@@ -46,136 +48,161 @@ public class Main {
         System.out.println("Bienvenido a la Liga BBUV");
 
         do {
-            System.out.println("Elige una opcion\n");
-            System.out.println("1. Registrar un nuevo equipo");
-            System.out.println("2. Registrar un nuevo jugador");
-            System.out.println("3. Registrar un traspaso de jugador");
-            System.out.println("4. Listar en pantalla los datos básicos de los equipos registrados");
-            System.out.println("5. Listar los jugadores de cada equipo");
-            System.out.println("6. Mostrar los traspasos realizados");
-            System.out.println("7. Cambiar demarcacion del jugador");
-            System.out.println("8. Evaluar el Fair Play financiero");
-            System.out.println("9. Salir del programa");
+            try {
+                System.out.println("Elige una opcion\n");
+                System.out.println("1. Registrar un nuevo equipo");
+                System.out.println("2. Registrar un nuevo jugador");
+                System.out.println("3. Registrar un traspaso de jugador");
+                System.out.println("4. Listar en pantalla los datos básicos de los equipos registrados");
+                System.out.println("5. Listar los jugadores de cada equipo");
+                System.out.println("6. Mostrar los traspasos realizados");
+                System.out.println("7. Cambiar demarcacion del jugador");
+                System.out.println("8. Evaluar el Fair Play financiero");
+                System.out.println("9. Comprobar demarcacion");
+                System.out.println("10. Salir del programa");
+                
+                opcion = sc.nextInt();
+                sc.nextLine();
 
-            opcion = sc.nextInt();
+                switch (opcion) {
 
-            switch (opcion) {
-
-                case 1:
-                    try {
-                        System.out.println("Introduce los datos del equipo: ");
-                        System.out.println("Nombre del equipo: ");
-                        sc.nextLine();
-                        nombreEquipo = sc.nextLine();
-                        System.out.println("Importe caja: ");
-                        importeCaja = sc.nextFloat();
-                        System.out.println("Nº abonados: ");
-                        numeroAbonados = sc.nextInt();
-                        System.out.println("Gastos generales: ");
-                        gastosGenerales = sc.nextFloat();
-                        Equipo e = new Equipo(nombreEquipo, importeCaja, numeroAbonados, gastosGenerales);
-                        gl.añadirEquipo(e);
-                    } catch (InputMismatchException e) {
-                        System.out.println("Has introducido una letra en lugar de un numero");
-                        sc.nextLine();
-                    } finally {
-                        break;
-                    }
-
-                case 2:
-                    try {
-                        System.out.println("Introduce los datos del jugador: ");
-                        System.out.println("Nombre del judador: ");
-                        sc.nextLine();
-                        nombreJugador = sc.nextLine();
-                        System.out.println("Demarcacion (portero, defensa, medio o delantero): ");
-                        demarcacion = sc.nextLine();
-                        compruebaDemarcacion(demarcacion);
-                        System.out.println("Importe Clausula: ");
-                        importeClausula = sc.nextFloat();
-                        System.out.println("Nombre del equipo al que pertenece: ");
-                        sc.nextLine();
-                        nombreEquipoJugador = sc.nextLine();
-                        System.out.println("Coste anual del jugador: ");
-                        costeAnual = sc.nextFloat();
-
-                        Jugador j = new Jugador(nombreJugador, demarcacion, importeClausula, costeAnual);
-
-                        gl.addJugadorEquipo(j, nombreEquipoJugador);
-                    } catch (InputMismatchException e) {
-                        System.out.println("Has introducido una letra en lugar de un numero");
-                        sc.nextLine();
-                    } catch (EquipoException ex) {
-                        System.out.println(ex.getMessage());
-                    } catch (DemarcacionException dx) {
-                        System.out.println(dx.getMessage());
-                    } finally {
-                        break;
-                    }
-
-                case 3:
-
-                    try {
-                        System.out.println("Introduce los datos del traspaso: ");
-                        System.out.println("Nombre del judador: ");
-                        sc.nextLine();
-                        nombreJugadorTraspaso = sc.nextLine();
-                        System.out.println("Importe Clausula: ");
-                        importeClausulaTraspaso = sc.nextFloat();
-                        System.out.println("Nombre del equipo de origen: ");
-                        sc.nextLine();
-                        equipoOrigen = sc.nextLine();
-                        System.out.println("Nombre del equipo de destino: ");
-                        equipoDestino = sc.nextLine();
-
-                        Traspaso t = new Traspaso(nombreJugadorTraspaso, fechaTraspaso, importeClausulaTraspaso, equipoOrigen, equipoDestino);
-
-                        if (gl.realizarTraspaso(equipoOrigen, equipoDestino, nombreJugadorTraspaso, importeClausulaTraspaso)) {
-                            System.out.println("El traspaso se realizo con exito");
-                            gl.añadirTraspaso(t);
+                    case 1:
+                        try {
+                            System.out.println("Introduce los datos del equipo: ");
+                            System.out.println("Nombre del equipo: ");
+                            
+                            nombreEquipo = sc.nextLine();
+                            System.out.println("Importe caja: ");
+                            importeCaja = sc.nextFloat();
+                            System.out.println("Nº abonados: ");
+                            numeroAbonados = sc.nextInt();
+                            System.out.println("Gastos generales: ");
+                            gastosGenerales = sc.nextFloat();
+                            Equipo e = new Equipo(nombreEquipo, importeCaja, numeroAbonados, gastosGenerales);
+                            gl.añadirEquipo(e);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Has introducido una letra en lugar de un numero");
+                            sc.nextLine();
+                        } finally {
+                            break;
                         }
-                    } catch (InputMismatchException e) {
-                        System.out.println("Has introducido una letra en lugar de un numero");
-                        sc.nextLine();
-                    } finally {
+
+                    case 2:
+                        try {
+                            System.out.println("Introduce los datos del jugador: ");
+                            System.out.println("Nombre del judador: ");
+                            
+                            nombreJugador = sc.nextLine();
+                            System.out.println("Demarcacion (portero, defensa, medio o delantero): ");
+                            demarcacion = sc.nextLine();
+                            compruebaDemarcacion(demarcacion);
+                            System.out.println("Importe Clausula: ");
+                            importeClausula = sc.nextFloat();
+                            System.out.println("Nombre del equipo al que pertenece: ");
+                            sc.nextLine();
+                            nombreEquipoJugador = sc.nextLine();
+                            System.out.println("Coste anual del jugador: ");
+                            costeAnual = sc.nextFloat();
+
+                            Jugador j = new Jugador(nombreJugador, demarcacion, importeClausula, costeAnual);
+
+                            gl.addJugadorEquipo(j, nombreEquipoJugador);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Has introducido una letra en lugar de un numero");
+                            sc.nextLine();
+                        } catch (EquipoException ex) {
+                            System.out.println(ex.getMessage());
+                        } catch (DemarcacionException dx) {
+                            System.out.println(dx.getMessage());
+                        } finally {
+                            break;
+                        }
+
+                    case 3:
+
+                        try {
+                            System.out.println("Introduce los datos del traspaso: ");
+                            System.out.println("Nombre del judador: ");
+                            
+                            nombreJugadorTraspaso = sc.nextLine();
+                            System.out.println("Importe Clausula: ");
+                            importeClausulaTraspaso = sc.nextFloat();
+                            System.out.println("Nombre del equipo de origen: ");
+                            sc.nextLine();
+                            equipoOrigen = sc.nextLine();
+                            System.out.println("Nombre del equipo de destino: ");
+                            equipoDestino = sc.nextLine();
+
+                            Traspaso t = new Traspaso(nombreJugadorTraspaso, fechaTraspaso, importeClausulaTraspaso, equipoOrigen, equipoDestino);
+
+                            if (gl.realizarTraspaso(equipoOrigen, equipoDestino, nombreJugadorTraspaso, importeClausulaTraspaso)) {
+                                System.out.println("El traspaso se realizo con exito");
+                                gl.añadirTraspaso(t);
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Has introducido una letra en lugar de un numero");
+                            sc.nextLine();
+                        } finally {
+                            break;
+                        }
+
+                    case 4:
+                        gl.mostrarEquiposBasico();
                         break;
-                    }
 
-                case 4:
-                    gl.mostrarEquiposBasico();
-                    break;
+                    case 5:
+                        gl.mostrarEquiposCompletos();
+                        break;
+                    case 6:
+                        gl.mostrarTraspasos();
+                        break;
+                    case 7:
+                        try {
+                            System.out.println("Introduce el nombre del jugador: ");
+                            
+                            nombreJugador = sc.nextLine();
+                            System.out.println("Introduce la demarcacion (portero, defensa, medio o delantero): ");
+                            demarcacion = sc.nextLine();
 
-                case 5:
-                    gl.mostrarEquiposCompletos();
-                    break;
-                case 6:
-                    gl.mostrarTraspasos();
-                    break;
-                case 7:
-                    try {
-                        System.out.println("Introduce el nombre del jugador: ");
-                        sc.nextLine();
-                        nombreJugador = sc.nextLine();
-                        System.out.println("Introduce la demarcacion (portero, defensa, medio o delantero): ");
-                        demarcacion = sc.nextLine();
+                            compruebaDemarcacion(demarcacion);
 
-                        compruebaDemarcacion(demarcacion);
+                            gl.CambiaDemarcacionJugador(nombreJugador, demarcacion);
 
-                        gl.CambiaDemarcacionJugador(nombreJugador, demarcacion);
+                            System.out.println("El cambio de demarcacion se ha realizado con exito");
+                        } catch (DemarcacionException de) {
+                            System.out.println(de.getMessage());
+                        } catch (JugadorException je) {
+                            System.out.println(je.getMessage());
+                        } finally {
+                            break;
+                        }
+                    case 8:
+                        EvaluarFairPlay();
+                        break;
+                    case 9:
+                        try {
+                            System.out.println("Introduce el nombre del equipo: ");
+                           
+                            nombreEquipoD = sc.nextLine();
 
-                        System.out.println("El cambio de demarcacion se ha realizado con exito");
-                    } catch (DemarcacionException de) {
-                        System.out.println(de.getMessage());
-                    } catch (JugadorException je) {
-                        System.out.println(je.getMessage());
-                    }
-                    break;
-                case 8:
-                    EvaluarFairPlay();
-                case 9:
-                    EscribeFichero(gl);
-                    System.exit(0);
-                    break;
+                            veificarDemarcacion(gl.ExisteEquipo(nombreEquipoD));
+
+                        } catch (EquipoException ex) {
+                            System.out.println(ex.getMessage());
+                        } finally {
+                            break;
+                        }
+
+                    case 10:
+                        EscribeFichero(gl);
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("La opcion introducida no es correcta");
+                        break;
+                }
+            } catch (InputMismatchException ie) {
+                System.out.println("Debes introducir un numero");
 
             }
         } while (opcion != -1);
@@ -259,11 +286,52 @@ public class Main {
 
     private static void EvaluarFairPlay() {
         for (Equipo e : gl.getEquiposBasico()) {
-            if(gl.CumpleFairPlay(e)){
+            if (gl.CumpleFairPlay(e)) {
                 System.out.println("El equipo " + e.getIdEquipo() + " con nombre " + e.getNombre() + "---> Cumple el Fair Play\n");
-            }else{
-                System.out.println("El equipo " + e.getIdEquipo() + " con nombre " + e.getNombre()+ "---> No cumple el Fair Play\n");
+            } else {
+                System.out.println("El equipo " + e.getIdEquipo() + " con nombre " + e.getNombre() + "---> No cumple el Fair Play\n");
             }
         }
+    }
+
+    public static void veificarDemarcacion(Equipo e) {
+        int porteros = 0;
+        int delanteros = 0;
+        int medios = 0;
+        int defensas = 0;
+        boolean cumple = false;
+        ArrayList<Jugador> plantilla = e.getPlantilla();
+
+        for (Jugador j : plantilla) {
+            if (j.getDemarcacion().equals("portero")) {
+                porteros++;
+            } else if (j.getDemarcacion().equals("delanteros")) {
+                delanteros++;
+            } else if (j.getDemarcacion().equals("medio")) {
+                medios++;
+            } else {
+                defensas++;
+            }
+        }
+        if (porteros >= 2 && defensas >= 4 && medios >= 4 && delanteros >= 3) {
+            cumple = true;
+        }
+
+        if (cumple) {
+            System.out.println("El equipo tiene: \n");
+            System.out.println((String.valueOf(porteros)) + " porteros\n");
+            System.out.println(String.valueOf(defensas) + " defensas\n");
+            System.out.println(String.valueOf(medios) + " medios\n");
+            System.out.println(String.valueOf(delanteros) + " delanteros\n");
+            System.out.println("El equipo si que cumple con los requisitos de las demarcaciones");
+        } else {
+            System.out.println("El equipo tiene: \n");
+            System.out.println(String.valueOf(porteros) + " porteros\n");
+            System.out.println(String.valueOf(defensas) + " defensas\n");
+            System.out.println(String.valueOf(medios) + " medios\n");
+            System.out.println(String.valueOf(delanteros) + " delanteros\n");
+            System.out.println("El equipo No que cumple con los requisitos de las demarcaciones");
+        }
+
     }
 }
