@@ -18,15 +18,17 @@ public class Jugador {
     private String nombre;
     private String demarcacion;
     private float importeClausula;
+    private float costeAnual;
 
     Jugador() {    
     }
 
-    public Jugador(String nombre, String demarcacion, float importeClausula) {
+    public Jugador(String nombre, String demarcacion, float importeClausula,float costeAnual) {
         this.idJugador = ++CONTIDEJUGADOR;
         this.nombre = nombre;
         this.demarcacion = demarcacion;
         this.importeClausula = importeClausula;
+        this.costeAnual = costeAnual;
     }
 
     public String getNombre() {
@@ -37,6 +39,14 @@ public class Jugador {
         return importeClausula;
     }
 
+    public String getDemarcacion() {
+        return demarcacion;
+    }
+
+    public float getCosteAnual() {
+        return costeAnual;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -47,6 +57,10 @@ public class Jugador {
     
      public void setDemarcacion(String demarcacion) {
         this.demarcacion = demarcacion;
+    }
+
+    public void setCosteAnual(float costeAnual) {
+        this.costeAnual = costeAnual;
     }
 
     @Override

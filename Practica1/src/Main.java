@@ -20,6 +20,8 @@ import java.util.Scanner;
  */
 public class Main {
 
+    private static GestorLiga gl = new GestorLiga();
+
     public static void main(String[] args) {
         int opcion;
         String nombreEquipo;
@@ -32,8 +34,9 @@ public class Main {
         Date fechaTraspaso = new Date();
         float importeClausulaTraspaso;
         float importeClausula;
-        float gastosGenerales = 0;
-        GestorLiga gl = new GestorLiga();
+        float gastosGenerales;
+        float costeAnual;
+
         float importeCaja;
         int numeroAbonados;
         Scanner sc = new Scanner(System.in); //Creación de un objeto Scanner
@@ -51,7 +54,8 @@ public class Main {
             System.out.println("5. Listar los jugadores de cada equipo");
             System.out.println("6. Mostrar los traspasos realizados");
             System.out.println("7. Cambiar demarcacion del jugador");
-            System.out.println("8. Salir del programa");
+            System.out.println("8. Evaluar el Fair Play financiero");
+            System.out.println("9. Salir del programa");
 
             opcion = sc.nextInt();
 
@@ -92,8 +96,10 @@ public class Main {
                         System.out.println("Nombre del equipo al que pertenece: ");
                         sc.nextLine();
                         nombreEquipoJugador = sc.nextLine();
+                        System.out.println("Coste anual del jugador: ");
+                        costeAnual = sc.nextFloat();
 
-                        Jugador j = new Jugador(nombreJugador, demarcacion, importeClausula);
+                        Jugador j = new Jugador(nombreJugador, demarcacion, importeClausula, costeAnual);
 
                         gl.addJugadorEquipo(j, nombreEquipoJugador);
                     } catch (InputMismatchException e) {
@@ -146,29 +152,31 @@ public class Main {
                     gl.mostrarTraspasos();
                     break;
                 case 7:
-                    try{
-                    System.out.println("Introduce el nombre del jugador: ");
-                    sc.nextLine();
-                    nombreJugador = sc.nextLine();
-                    System.out.println("Introduce la demarcacion (portero, defensa, medio o delantero): ");
-                    demarcacion = sc.nextLine();
-                    
-                    compruebaDemarcacion(demarcacion);
-                    
-                    gl.CambiaDemarcacionJugador(nombreJugador, demarcacion);
-                    
+                    try {
+                        System.out.println("Introduce el nombre del jugador: ");
+                        sc.nextLine();
+                        nombreJugador = sc.nextLine();
+                        System.out.println("Introduce la demarcacion (portero, defensa, medio o delantero): ");
+                        demarcacion = sc.nextLine();
+
+                        compruebaDemarcacion(demarcacion);
+
+                        gl.CambiaDemarcacionJugador(nombreJugador, demarcacion);
+
                         System.out.println("El cambio de demarcacion se ha realizado con exito");
-                    }catch(DemarcacionException de){
+                    } catch (DemarcacionException de) {
                         System.out.println(de.getMessage());
-                    }catch(JugadorException je){
+                    } catch (JugadorException je) {
                         System.out.println(je.getMessage());
                     }
                     break;
                 case 8:
+                    EvaluarFairPlay();
+                case 9:
                     EscribeFichero(gl);
                     System.exit(0);
                     break;
-                    
+
             }
         } while (opcion != -1);
 
@@ -198,20 +206,20 @@ public class Main {
         Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 10000);
         Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 10000);
 
-        Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000);
-        Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000);
-        Jugador j3 = new Jugador("Pique", "Defensa", 40000000);
-        Jugador j4 = new Jugador("Busquets", "Medio", 60000000);
+        Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000, 40);
+        Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000, (float) 13.7);
+        Jugador j3 = new Jugador("Pique", "Defensa", 40000000, (float) 5.7);
+        Jugador j4 = new Jugador("Busquets", "Medio", 60000000, 5);
 
-        Jugador j5 = new Jugador("Cristiano Ronaldo", "Delantero", 90000000);
-        Jugador j6 = new Jugador("Keylor Navas", "Portero", 30000000);
-        Jugador j7 = new Jugador("Sergio Ramos", "Defensa", 40000000);
-        Jugador j8 = new Jugador("Modric", "Medio", 70000000);
+        Jugador j5 = new Jugador("Cristiano Ronaldo", "Delantero", 90000000, 32);
+        Jugador j6 = new Jugador("Keylor Navas", "Portero", 30000000, 10);
+        Jugador j7 = new Jugador("Sergio Ramos", "Defensa", 40000000, 10);
+        Jugador j8 = new Jugador("Modric", "Medio", 70000000, 7);
 
-        Jugador j9 = new Jugador("Rodrigo", "Delantero", 20000000);
-        Jugador j10 = new Jugador("Diego Alves", "Portero", 30000000);
-        Jugador j11 = new Jugador("Mustafi", "Defensa", 40000000);
-        Jugador j12 = new Jugador("Javi Fuego", "Medio", 20000000);
+        Jugador j9 = new Jugador("Rodrigo", "Delantero", 20000000, 5);
+        Jugador j10 = new Jugador("Diego Alves", "Portero", 30000000, 2);
+        Jugador j11 = new Jugador("Mustafi", "Defensa", 40000000, 3);
+        Jugador j12 = new Jugador("Javi Fuego", "Medio", 20000000, 1);
 
         equipo1.anyadirJugador(j9);
         equipo1.anyadirJugador(j10);
@@ -246,6 +254,16 @@ public class Main {
 
         if (!correcta) {
             throw new DemarcacionException("La demarcacion no es la adecuada, debe ser uno de los siguientes valores: \n portero, defensa, medio o delantero");
+        }
+    }
+
+    private static void EvaluarFairPlay() {
+        for (Equipo e : gl.getEquiposBasico()) {
+            if(gl.CumpleFairPlay(e)){
+                System.out.println("El equipo " + e.getIdEquipo() + " con nombre " + e.getNombre() + "---> Cumple el Fair Play\n");
+            }else{
+                System.out.println("El equipo " + e.getIdEquipo() + " con nombre " + e.getNombre()+ "---> No cumple el Fair Play\n");
+            }
         }
     }
 }

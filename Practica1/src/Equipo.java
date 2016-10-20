@@ -38,7 +38,7 @@ public class Equipo {
         return idEquipo;
     }
 
-    public float getGastosgastosGenerales() {
+    public float getGastosGenerales() {
         return gastosGenerales;
     }
 

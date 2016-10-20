@@ -57,7 +57,7 @@ public class GestorLiga {
             System.out.println("Nombre del equipo: " + e.getNombre() + "\n");
             System.out.println("Importe caja: " + e.getImporteCaja() + "\n");
             System.out.println("Numero de abonados: " + e.getNumAbonados() + "\n");
-            System.out.println("\nGastos generales: " + String.format("%.2f", e.getGastosgastosGenerales()) + " €");
+            System.out.println("\nGastos generales: " + String.format("%.2f", e.getGastosGenerales()) + " €");
             System.out.println("_____________________________________\n");
 
         }
@@ -155,5 +155,22 @@ public class GestorLiga {
         }
 
         return ju;
+    }
+    
+    public boolean CumpleFairPlay(Equipo e){
+        boolean cumple = false;
+        float gastosTotales = 0;
+        float sueldoPlantilla = 0;
+        for(Jugador j : e.getPlantilla()){
+            sueldoPlantilla += j.getCosteAnual() * 2;
+        }
+        
+        gastosTotales = sueldoPlantilla*1000000 + e.getGastosGenerales();
+        
+        if(e.getImporteCaja() >= gastosTotales){
+            cumple = true;
+        }
+        
+        return cumple;
     }
 }
