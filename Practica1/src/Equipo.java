@@ -18,30 +18,28 @@ public class Equipo {
     private String nombre;
     private float importeCaja;
     private int numAbonados;
-    private float gastosFijos;
-    private float gastosVariables;
+    private float gastosGenerales;
+    
     private ArrayList<Jugador> plantilla = new ArrayList<>();
 
-    public Equipo(String nombre, float importeCaja, int numAbonados, float gastosFijos, float gastosVariables) {
+    public Equipo(String nombre, float importeCaja, int numAbonados, float gastosGenerales) {
         this.idEquipo = ++CONTIDEQUIPO;
         this.nombre = nombre;
         this.importeCaja = importeCaja;
         this.numAbonados = numAbonados;
-        this.gastosFijos = gastosFijos;
-        this.gastosVariables = gastosVariables;
+        this.gastosGenerales = gastosGenerales;
+        
     }
 
     public int getIdEquipo() {
         return idEquipo;
     }
 
-    public float getGastosFijos() {
-        return gastosFijos;
+    public float getGastosgastosGenerales() {
+        return gastosGenerales;
     }
 
-    public float getGastosVariables() {
-        return gastosVariables;
-    }
+   
 
     public String getNombre() {
         return nombre;
@@ -75,8 +73,7 @@ public class Equipo {
         result += "\nNombre: " + nombre;
         result += "\nImporte en Caja: " + String.format("%.2f", importeCaja) + " €";
         result += "\nNº Abonados: " + String.format("%03d", numAbonados);
-        result += "\nGastos Fijos: " + String.format("%.2f", gastosFijos) + " €";
-        result += "\nGastos Variables: " + String.format("%.2f", gastosVariables) + " €";
+        result += "\nGastos generales: " + String.format("%.2f", gastosGenerales) + " €";
         result += "\nPlantilla: ";
         for (Jugador j : plantilla) {
             result += "\n     " + j.toString();
