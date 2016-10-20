@@ -18,20 +18,17 @@ public class Jugador {
     private String nombre;
 
     Jugador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
-    public enum demarcacion {
-
-        portero, defensa, medio, delantero
-    };
-    private String posicion;
+    
+    private String demarcacion;
     private float importeClausula;
 
     public Jugador(String nombre, String demarcacion, float importeClausula) {
         this.idJugador = ++CONTIDEJUGADOR;
         this.nombre = nombre;
-        this.posicion = demarcacion;
+        this.demarcacion = demarcacion;
         this.importeClausula = importeClausula;
     }
 
@@ -52,7 +49,7 @@ public class Jugador {
     }
     
      public void setDemarcacion(String demarcacion) {
-        this.importeClausula = importeClausula;
+        this.demarcacion = demarcacion;
     }
 
     @Override
@@ -61,8 +58,8 @@ public class Jugador {
         
         result += "ID: " + String.format("%03d", idJugador);
         result += " Nombre " + nombre;
-        result += " Posicion" + posicion;
-        result += " Clausula" + String.format("%.2f", importeClausula) + " €";
+        result += " Posicion " + demarcacion;
+        result += " Clausula " + String.format("%.2f", importeClausula) + " €";
         
         return result;
         

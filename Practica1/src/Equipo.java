@@ -18,7 +18,7 @@ public class Equipo {
     private String nombre;
     private float importeCaja;
     private int numAbonados;
-    private ArrayList<Jugador> plantilla;
+    private ArrayList<Jugador> plantilla = new ArrayList<>();
 
     public Equipo(String nombre, float importeCaja, int numAbonados) {
         this.idEquipo = ++CONTIDEQUIPO;

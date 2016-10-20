@@ -1,4 +1,5 @@
 
+import Excepciones.EquipoException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,8 +17,8 @@ public class GestorLiga {
     private Jugador jugador;
     private Equipo equipo;
     private Traspaso traspaso;
-    private ArrayList<Equipo> equipos;
-    private ArrayList<Traspaso> traspasos;
+    private ArrayList<Equipo> equipos = new ArrayList<>();
+    private ArrayList<Traspaso> traspasos = new ArrayList<>();
 
     GestorLiga() {
     }
@@ -38,22 +39,25 @@ public class GestorLiga {
         return this.equipos.add(e);
     }
 
-    public void addJugadorEquipo(Jugador jungador, String nombre) {
-
+    public void addJugadorEquipo(Jugador jugador, String nombre) throws EquipoException {
+        boolean existe = false;
         for (Equipo equipo1 : equipos) {
             if (equipo1.getNombre().equals(nombre)) {
                 equipo1.anyadirJugador(jugador);
+                existe = true;
             }
         }
-
+        if(!existe){
+            throw new EquipoException("El equipo seleccionado no existe");
+        }
     }
 
     public void mostrarEquiposBasico() {
         for (Equipo e : equipos) {
-            System.out.println("Nombre del equipo: " + e.getNombre());
-            System.out.println("Nombre del equipo: " + e.getImporteCaja());
-            System.out.println("Nombre del equipo: " + e.getNumAbonados());
-            System.out.println("_____________________________________");
+            System.out.println("Nombre del equipo: " + e.getNombre() + "\n");
+            System.out.println("Importe caja: " + e.getImporteCaja() + "\n");
+            System.out.println("Numero de abonados: " + e.getNumAbonados() + "\n");
+            System.out.println("_____________________________________\n");
 
         }
     }
@@ -61,22 +65,53 @@ public class GestorLiga {
     public ArrayList<Equipo> getEquiposBasico() {
         return this.equipos;
     }
-    
-     public ArrayList<Traspaso> getTraspasos() {
+
+    public ArrayList<Traspaso> getTraspasos() {
         return this.traspasos;
     }
 
-
     public void mostrarEquiposCompletos() {
         for (Equipo e : equipos) {
-            e.toString();
+            System.out.println(e.toString());
         }
     }
 
     public void mostrarTraspasos() {
         for (Traspaso t : traspasos) {
-            t.toString();
+            System.out.println(t.toString());
         }
     }
 
+    public boolean realizarTraspaso(String equipoOrigen, String equipoDestino, String nombreJugadorTraspaso, float importe) {
+        Jugador jugador = new Jugador();
+        boolean encontrado = false;
+        for (Equipo e : equipos) {
+            if (e.getNombre().equals(equipoOrigen)) {
+                for (int i = 0; i < e.getPlantilla().size(); i++) {
+                    jugador = e.getPlantilla().get(i);
+                    if (jugador.getNombre().equals(nombreJugadorTraspaso)) {
+                        e.eliminarJugador(jugador);
+                        encontrado = true;
+                    }
+                }
+            }
+        }
+        if (!encontrado) {
+            System.out.println("El equipo de origen no existe");
+        } else {
+            encontrado = false;
+            for (Equipo e : equipos) {
+                if (e.getNombre().equals(equipoDestino)) {
+                    e.anyadirJugador(jugador);
+                    e.setImporteCaja(importe);
+                    encontrado = true;
+                }
+            }
+            if (!encontrado) {
+                System.out.println("El equipo de destino no existe");
+            }
+        }
+
+        return encontrado;
+    }
 }

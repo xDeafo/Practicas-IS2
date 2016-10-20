@@ -1,0 +1,33 @@
+
+ID: 001
+Nombre: Valencia
+Importe en Caja: 30000000,00 €
+Nº Abonados: 100000
+Plantilla: 
+     ID: 009 Nombre Rodrigo Posicion Delantero Clausula 20000000,00 €
+     ID: 010 Nombre Diego Alves Posicion Portero Clausula 30000000,00 €
+     ID: 011 Nombre Mustafi Posicion Defensa Clausula 40000000,00 €
+     ID: 012 Nombre Javi Fuego Posicion Medio Clausula 20000000,00 €
+------------------------------------------------------
+
+ID: 002
+Nombre: Barcelona
+Importe en Caja: 120000000,00 €
+Nº Abonados: 500000
+Plantilla: 
+     ID: 001 Nombre Leo Messi Posicion Delantero Clausula 100000000,00 €
+     ID: 002 Nombre Ter Stegen Posicion Portero Clausula 20000000,00 €
+     ID: 003 Nombre Pique Posicion Defensa Clausula 40000000,00 €
+     ID: 004 Nombre Busquets Posicion Medio Clausula 60000000,00 €
+------------------------------------------------------
+
+ID: 003
+Nombre: Real Madrid
+Importe en Caja: 100000000,00 €
+Nº Abonados: 400000
+Plantilla: 
+     ID: 005 Nombre Cristiano Ronaldo Posicion Delantero Clausula 90000000,00 €
+     ID: 006 Nombre Keylor Navas Posicion Portero Clausula 30000000,00 €
+     ID: 007 Nombre Sergio Ramos Posicion Defensa Clausula 40000000,00 €
+     ID: 008 Nombre Modric Posicion Medio Clausula 70000000,00 €
+------------------------------------------------------

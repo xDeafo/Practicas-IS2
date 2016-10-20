@@ -30,8 +30,7 @@ public class Traspaso {
         this.destino = destino;
     }
 
-    Traspaso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Traspaso(){
     }
 
     public String getNombreJugador() {
