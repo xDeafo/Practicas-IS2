@@ -22,6 +22,9 @@ public class Equipo {
     
     private ArrayList<Jugador> plantilla = new ArrayList<>();
 
+    public Equipo() {
+    }
+
     public Equipo(String nombre, float importeCaja, int numAbonados, float gastosGenerales) {
         this.idEquipo = ++CONTIDEQUIPO;
         this.nombre = nombre;

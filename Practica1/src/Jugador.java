@@ -16,14 +16,11 @@ public class Jugador {
 
     private int idJugador;
     private String nombre;
-
-    Jugador() {
-        
-    }
-
-    
     private String demarcacion;
     private float importeClausula;
+
+    Jugador() {    
+    }
 
     public Jugador(String nombre, String demarcacion, float importeClausula) {
         this.idJugador = ++CONTIDEJUGADOR;
@@ -65,5 +62,4 @@ public class Jugador {
         
         
     }
-    
 }

@@ -1,5 +1,6 @@
 
 import Excepciones.EquipoException;
+import Excepciones.JugadorException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -40,14 +41,13 @@ public class GestorLiga {
     }
 
     public void addJugadorEquipo(Jugador jugador, String nombre) throws EquipoException {
+        Equipo e = ExisteEquipo(nombre);
         boolean existe = false;
-        for (Equipo equipo1 : equipos) {
-            if (equipo1.getNombre().equals(nombre)) {
-                equipo1.anyadirJugador(jugador);
-                existe = true;
-            }
+        if (e != null) {
+            e.anyadirJugador(jugador);
+            existe = true;
         }
-        if(!existe){
+        if (!existe) {
             throw new EquipoException("El equipo seleccionado no existe");
         }
     }
@@ -114,5 +114,46 @@ public class GestorLiga {
         }
 
         return encontrado;
+    }
+
+    public void CambiaDemarcacionJugador(String nombreJugador, String newDemarcacion)throws JugadorException {
+        for(Equipo e : equipos){
+            Jugador j = ExisteJugador(e, nombreJugador);
+            if(j != null){
+                j.setDemarcacion(newDemarcacion);
+            }
+        }
+    }
+
+    private Equipo ExisteEquipo(String nombreEquipo) throws EquipoException {
+        Equipo e = null;
+        boolean existe = false;
+        for (Equipo equipo1 : equipos) {
+            if (equipo1.getNombre().equals(nombreEquipo)) {
+                existe = true;
+                e = equipo1;
+            }
+        }
+        if (!existe) {
+            throw new EquipoException("El equipo seleccionado no existe");
+        }
+
+        return e;
+    }
+
+    private Jugador ExisteJugador(Equipo e,String nombreJugador) throws JugadorException {
+        boolean existe = false;
+        Jugador ju = null;
+        for (Jugador j : e.getPlantilla()) {
+            if (j.getNombre().equals(nombreJugador)) {
+                existe = true;
+                ju = j;
+            }
+        }
+        if (!existe) {
+            throw new JugadorException("El Jugador seleccionado no existe");
+        }
+
+        return ju;
     }
 }

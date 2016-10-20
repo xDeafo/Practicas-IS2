@@ -1,6 +1,7 @@
 
 import Excepciones.DemarcacionException;
 import Excepciones.EquipoException;
+import Excepciones.JugadorException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -49,7 +50,8 @@ public class Main {
             System.out.println("4. Listar en pantalla los datos básicos de los equipos registrados");
             System.out.println("5. Listar los jugadores de cada equipo");
             System.out.println("6. Mostrar los traspasos realizados");
-            System.out.println("7. Salir del programa");
+            System.out.println("7. Cambiar demarcacion del jugador");
+            System.out.println("8. Salir del programa");
 
             opcion = sc.nextInt();
 
@@ -144,10 +146,29 @@ public class Main {
                     gl.mostrarTraspasos();
                     break;
                 case 7:
+                    try{
+                    System.out.println("Introduce el nombre del jugador: ");
+                    sc.nextLine();
+                    nombreJugador = sc.nextLine();
+                    System.out.println("Introduce la demarcacion (portero, defensa, medio o delantero): ");
+                    demarcacion = sc.nextLine();
+                    
+                    compruebaDemarcacion(demarcacion);
+                    
+                    gl.CambiaDemarcacionJugador(nombreJugador, demarcacion);
+                    
+                        System.out.println("El cambio de demarcacion se ha realizado con exito");
+                    }catch(DemarcacionException de){
+                        System.out.println(de.getMessage());
+                    }catch(JugadorException je){
+                        System.out.println(je.getMessage());
+                    }
+                    break;
+                case 8:
                     EscribeFichero(gl);
                     System.exit(0);
                     break;
-
+                    
             }
         } while (opcion != -1);
 
