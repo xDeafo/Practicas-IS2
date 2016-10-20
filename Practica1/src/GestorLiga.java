@@ -23,8 +23,8 @@ public class GestorLiga {
     GestorLiga() {
     }
 
-    public void registrarEquipo(String nombre, float importeCaja, int numAbonados) {
-        this.equipo = new Equipo(nombre, importeCaja, numAbonados);
+    public void registrarEquipo(String nombre, float importeCaja, int numAbonados, float gastosFijos, float gastosVariables) {
+        this.equipo = new Equipo(nombre, importeCaja, numAbonados, gastosFijos, gastosVariables);
     }
 
     public void registrarTraspaso(String nombreJugador, Date fecha, float importeClausula, String origen, String destino) {
@@ -57,6 +57,8 @@ public class GestorLiga {
             System.out.println("Nombre del equipo: " + e.getNombre() + "\n");
             System.out.println("Importe caja: " + e.getImporteCaja() + "\n");
             System.out.println("Numero de abonados: " + e.getNumAbonados() + "\n");
+            System.out.println("\nGastos Fijos: " + String.format("%.2f", e.getGastosFijos()) + " €");
+            System.out.println("\nGastos Variables: " + String.format("%.2f", e.getGastosVariables()) + " €");
             System.out.println("_____________________________________\n");
 
         }

@@ -31,6 +31,8 @@ public class Main {
         Date fechaTraspaso = new Date();
         float importeClausulaTraspaso;
         float importeClausula;
+        float gastosFijos = 0;
+        float gastosVariables = 0;
         GestorLiga gl = new GestorLiga();
         float importeCaja;
         int numeroAbonados;
@@ -65,7 +67,7 @@ public class Main {
                         System.out.println("Nº abonados: ");
                         numeroAbonados = sc.nextInt();
 
-                        Equipo e = new Equipo(nombreEquipo, importeCaja, numeroAbonados);
+                        Equipo e = new Equipo(nombreEquipo, importeCaja, numeroAbonados, gastosFijos, gastosVariables);
                         gl.añadirEquipo(e);
                     } catch (InputMismatchException e) {
                         System.out.println("Has introducido una letra en lugar de un numero");
@@ -171,9 +173,9 @@ public class Main {
     }
 
     private static void cargaInicialDeDatos(GestorLiga gl) {
-        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000);
-        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000);
-        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000);
+        Equipo equipo1 = new Equipo("Valencia", 30000000, 100000, 10000, 20000);
+        Equipo equipo2 = new Equipo("Barcelona", 120000000, 500000, 10000, 20000);
+        Equipo equipo3 = new Equipo("Real Madrid", 100000000, 400000, 10000, 20000);
 
         Jugador j1 = new Jugador("Leo Messi", "Delantero", 100000000);
         Jugador j2 = new Jugador("Ter Stegen", "Portero", 20000000);
