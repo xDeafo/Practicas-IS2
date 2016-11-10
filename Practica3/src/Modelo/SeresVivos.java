@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.Random;
+
 /**
  *
  * @author Ventura
@@ -12,8 +14,5 @@ package Modelo;
 public abstract class SeresVivos {
     
     public abstract boolean Reproducirse();
-    public abstract int Comer();
-    public abstract SeresVivos Nacer();
-    public abstract boolean Morir();
-    
+
 }

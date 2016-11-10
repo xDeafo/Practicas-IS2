@@ -5,15 +5,23 @@
  */
 package Controlador;
 
+import Modelo.KrillPlacton;
+
 /**
  *
  * @author Ventura
  */
 public class Oceano {
     private static int dia = 1;
+    private static int temperatura = 18;
+    private KrillPlacton placton;
 
     public static int getDia() {
         return dia;
+    }
+
+    public static int getTemperatura() {
+        return temperatura;
     }
     
     

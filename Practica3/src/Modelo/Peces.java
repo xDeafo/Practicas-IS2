@@ -15,6 +15,10 @@ public abstract class Peces extends SeresVivos{
     protected int fechaNacimiento;
     protected float velocidad;
     protected String especie;
+    
+    public abstract int Comer();
+    public abstract SeresVivos Nacer();
+    public abstract boolean Morir();
 
     public Peces(int fechaNacimiento, String especie) {
         this.fechaNacimiento = fechaNacimiento;
@@ -33,8 +37,5 @@ public abstract class Peces extends SeresVivos{
         return especie;
     }
     
-    public int CalculaRandom(int min, int max){
-        Random rdn = new Random();
-        return rdn.nextInt(max - min + 1) + min;
-    }
+    
 }

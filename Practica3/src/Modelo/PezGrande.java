@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import Recursos.Utilidades;
+
 /**
  *
  * @author Ventura
@@ -19,7 +21,7 @@ public class PezGrande extends Peces{
     @Override
     public boolean Reproducirse() {
         boolean nace = false;
-        int probNacer = CalculaRandom(0, 1000);
+        int probNacer = Utilidades.CalculaRandom(0, 1000);
         if(probNacer <= 198){
             nace = true;
         }
@@ -28,12 +30,17 @@ public class PezGrande extends Peces{
 
     @Override
     public int Comer() {
-        return CalculaRandom(1, 2);
+        return Utilidades.CalculaRandom(1, 2);
     }
 
     @Override
     public boolean Morir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean muere = false;
+        int probMorir = Utilidades.CalculaRandom(0, 1000);
+        if(probMorir <= 93){
+            muere = true;
+        }
+        return muere;
     }
 
     @Override

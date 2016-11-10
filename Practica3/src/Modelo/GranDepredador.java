@@ -6,6 +6,7 @@
 package Modelo;
 
 import Controlador.Oceano;
+import Recursos.Utilidades;
 
 /**
  *
@@ -20,7 +21,7 @@ public class GranDepredador extends Peces{
     @Override
     public boolean Reproducirse() {
         boolean nace = false;
-        int probNacer = CalculaRandom(0, 1000);
+        int probNacer = Utilidades.CalculaRandom(0, 1000);
         if(probNacer <= 35){
             nace = true;
         }
@@ -30,7 +31,7 @@ public class GranDepredador extends Peces{
     @Override
     public int Comer() {
         //puede comer 0 , 1  o 2 peces cada dia
-        return CalculaRandom(0, 2);
+        return Utilidades.CalculaRandom(0, 2);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class GranDepredador extends Peces{
     @Override
     public boolean Morir() {
         boolean muere = false;
-        int probMorir = CalculaRandom(0, 1000);
+        int probMorir = Utilidades.CalculaRandom(0, 1000);
         if(probMorir <= 28){
             muere = true;
         }
