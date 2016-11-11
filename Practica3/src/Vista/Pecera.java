@@ -18,6 +18,7 @@ public class Pecera extends javax.swing.JFrame {
     public Pecera() {
         System.currentTimeMillis();
         initComponents();
+        this.setSize(1019,650);
     }
 
     /**
@@ -29,18 +30,274 @@ public class Pecera extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btn_calentamiento = new javax.swing.JButton();
+        btn_deshielo = new javax.swing.JButton();
+        btn_captura_depredadores = new javax.swing.JButton();
+        btn_contaminacion = new javax.swing.JButton();
+        btn_atras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        lb_fecha_mar = new javax.swing.JLabel();
+        lb_temperatura = new javax.swing.JLabel();
+        lb_tibu_blancos = new javax.swing.JLabel();
+        lb_tibu_toro = new javax.swing.JLabel();
+        lb_pez_espada = new javax.swing.JLabel();
+        lb_atunes = new javax.swing.JLabel();
+        lb_dorados = new javax.swing.JLabel();
+        lb_bacalaos = new javax.swing.JLabel();
+        lb_besugos = new javax.swing.JLabel();
+        lb_meros = new javax.swing.JLabel();
+        lb_boquerones = new javax.swing.JLabel();
+        lb_sardinas = new javax.swing.JLabel();
+        lb_lenguados = new javax.swing.JLabel();
+        lb_jureles = new javax.swing.JLabel();
+        lb_gallos = new javax.swing.JLabel();
+        lb_plancton = new javax.swing.JLabel();
+        lb_catastrofes = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        btn_calentamiento.setText("Calentamiento global");
+        getContentPane().add(btn_calentamiento);
+        btn_calentamiento.setBounds(788, 63, 200, 31);
+
+        btn_deshielo.setText("Deshielo de polos");
+        getContentPane().add(btn_deshielo);
+        btn_deshielo.setBounds(788, 110, 200, 31);
+
+        btn_captura_depredadores.setText("Captura de depredadores");
+        getContentPane().add(btn_captura_depredadores);
+        btn_captura_depredadores.setBounds(788, 162, 200, 31);
+
+        btn_contaminacion.setText("Gran contaminacion");
+        getContentPane().add(btn_contaminacion);
+        btn_contaminacion.setBounds(788, 211, 200, 31);
+
+        btn_atras.setText("Atras");
+        getContentPane().add(btn_atras);
+        btn_atras.setBounds(800, 520, 200, 31);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Catastrofes");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(862, 31, 57, 14);
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Fecha del mar:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(58, 31, 71, 14);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Temperatura del agua:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(253, 31, 110, 14);
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Animales:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(58, 80, 46, 14);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Grandes depredadores:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(102, 100, 114, 14);
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Peces grandes:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(102, 248, 74, 14);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Peces pequeños:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(102, 391, 82, 14);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Krill y plancton:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(58, 542, 73, 14);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Catastrofes:");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(58, 584, 61, 14);
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Tiburones blancos:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(162, 132, 90, 14);
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Tiburones toro:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(162, 166, 74, 14);
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Peces espada:");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(162, 198, 70, 14);
+
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Atunes:");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(163, 280, 38, 14);
+
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Dorados:");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(163, 300, 44, 14);
+
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Bacalaos:");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(163, 319, 46, 14);
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Besugos:");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(163, 339, 44, 14);
+
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Meros:");
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(163, 359, 33, 14);
+
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Boquerones:");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(163, 416, 61, 14);
+
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Sardinas:");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(163, 441, 45, 14);
+
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Lenguados:");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(163, 461, 56, 14);
+
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Jureles:");
+        getContentPane().add(jLabel22);
+        jLabel22.setBounds(163, 486, 38, 14);
+
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Gallos:");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(163, 511, 32, 14);
+
+        lb_fecha_mar.setForeground(new java.awt.Color(255, 255, 255));
+        lb_fecha_mar.setText("Fecha del mar:");
+        getContentPane().add(lb_fecha_mar);
+        lb_fecha_mar.setBounds(135, 31, 71, 14);
+
+        lb_temperatura.setForeground(new java.awt.Color(255, 255, 255));
+        lb_temperatura.setText("Temperatura del agua:");
+        getContentPane().add(lb_temperatura);
+        lb_temperatura.setBounds(369, 31, 110, 14);
+
+        lb_tibu_blancos.setForeground(new java.awt.Color(255, 255, 255));
+        lb_tibu_blancos.setText("Tiburones blancos:");
+        getContentPane().add(lb_tibu_blancos);
+        lb_tibu_blancos.setBounds(262, 132, 90, 14);
+
+        lb_tibu_toro.setForeground(new java.awt.Color(255, 255, 255));
+        lb_tibu_toro.setText("Tiburones toro:");
+        getContentPane().add(lb_tibu_toro);
+        lb_tibu_toro.setBounds(242, 166, 74, 14);
+
+        lb_pez_espada.setForeground(new java.awt.Color(255, 255, 255));
+        lb_pez_espada.setText("Peces espada:");
+        getContentPane().add(lb_pez_espada);
+        lb_pez_espada.setBounds(238, 198, 70, 14);
+
+        lb_atunes.setForeground(new java.awt.Color(255, 255, 255));
+        lb_atunes.setText("Atunes:");
+        getContentPane().add(lb_atunes);
+        lb_atunes.setBounds(211, 280, 38, 14);
+
+        lb_dorados.setForeground(new java.awt.Color(255, 255, 255));
+        lb_dorados.setText("Dorados:");
+        getContentPane().add(lb_dorados);
+        lb_dorados.setBounds(213, 300, 44, 14);
+
+        lb_bacalaos.setForeground(new java.awt.Color(255, 255, 255));
+        lb_bacalaos.setText("Bacalaos:");
+        getContentPane().add(lb_bacalaos);
+        lb_bacalaos.setBounds(215, 319, 46, 14);
+
+        lb_besugos.setForeground(new java.awt.Color(255, 255, 255));
+        lb_besugos.setText("Besugos:");
+        getContentPane().add(lb_besugos);
+        lb_besugos.setBounds(217, 339, 44, 14);
+
+        lb_meros.setForeground(new java.awt.Color(255, 255, 255));
+        lb_meros.setText("Meros:");
+        getContentPane().add(lb_meros);
+        lb_meros.setBounds(206, 359, 33, 14);
+
+        lb_boquerones.setForeground(new java.awt.Color(255, 255, 255));
+        lb_boquerones.setText("Boquerones:");
+        getContentPane().add(lb_boquerones);
+        lb_boquerones.setBounds(230, 416, 61, 14);
+
+        lb_sardinas.setForeground(new java.awt.Color(255, 255, 255));
+        lb_sardinas.setText("Sardinas:");
+        getContentPane().add(lb_sardinas);
+        lb_sardinas.setBounds(214, 441, 45, 14);
+
+        lb_lenguados.setForeground(new java.awt.Color(255, 255, 255));
+        lb_lenguados.setText("Lenguados:");
+        getContentPane().add(lb_lenguados);
+        lb_lenguados.setBounds(230, 461, 56, 14);
+
+        lb_jureles.setForeground(new java.awt.Color(255, 255, 255));
+        lb_jureles.setText("Jureles:");
+        getContentPane().add(lb_jureles);
+        lb_jureles.setBounds(207, 486, 38, 14);
+
+        lb_gallos.setForeground(new java.awt.Color(255, 255, 255));
+        lb_gallos.setText("Gallos:");
+        getContentPane().add(lb_gallos);
+        lb_gallos.setBounds(201, 511, 32, 14);
+
+        lb_plancton.setForeground(new java.awt.Color(255, 255, 255));
+        lb_plancton.setText("Krill y plancton:");
+        getContentPane().add(lb_plancton);
+        lb_plancton.setBounds(137, 542, 73, 14);
+
+        lb_catastrofes.setForeground(new java.awt.Color(255, 255, 255));
+        lb_catastrofes.setText("Catastrofes:");
+        getContentPane().add(lb_catastrofes);
+        lb_catastrofes.setBounds(125, 584, 61, 14);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo-del-mar-189765.jpg"))); // NOI18N
+        jLabel13.setText("jLabel13");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(0, 0, 1030, 670);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,5 +338,50 @@ public class Pecera extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_calentamiento;
+    private javax.swing.JButton btn_captura_depredadores;
+    private javax.swing.JButton btn_contaminacion;
+    private javax.swing.JButton btn_deshielo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lb_atunes;
+    private javax.swing.JLabel lb_bacalaos;
+    private javax.swing.JLabel lb_besugos;
+    private javax.swing.JLabel lb_boquerones;
+    private javax.swing.JLabel lb_catastrofes;
+    private javax.swing.JLabel lb_dorados;
+    private javax.swing.JLabel lb_fecha_mar;
+    private javax.swing.JLabel lb_gallos;
+    private javax.swing.JLabel lb_jureles;
+    private javax.swing.JLabel lb_lenguados;
+    private javax.swing.JLabel lb_meros;
+    private javax.swing.JLabel lb_pez_espada;
+    private javax.swing.JLabel lb_plancton;
+    private javax.swing.JLabel lb_sardinas;
+    private javax.swing.JLabel lb_temperatura;
+    private javax.swing.JLabel lb_tibu_blancos;
+    private javax.swing.JLabel lb_tibu_toro;
     // End of variables declaration//GEN-END:variables
 }
