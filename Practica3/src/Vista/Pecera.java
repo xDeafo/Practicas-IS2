@@ -80,6 +80,11 @@ public class Pecera extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         btn_calentamiento.setText("Calentamiento global");
+        btn_calentamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_calentamientoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_calentamiento);
         btn_calentamiento.setBounds(788, 63, 200, 31);
 
@@ -301,6 +306,10 @@ public class Pecera extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_calentamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calentamientoActionPerformed
+       
+    }//GEN-LAST:event_btn_calentamientoActionPerformed
 
     /**
      * @param args the command line arguments
