@@ -104,16 +104,20 @@ public class Oceano {
             gd = crearEspecieDepredadores(cont);
             peces.add(gd);
             cont++;
-            if (cont % NUM_DEPREDADORES) 
+            if (cont % NUM_DEPREDADORES == 0) {
                 cont = 0;
-            
+            }
         }
     }
 
     public void crearKrillPlancton() {
         KrillPlacton plancton = new KrillPlacton();
     }
-
+    
+    public KrillPlacton getKrillPlancton(){
+        return this.placton;
+    }
+    
     public PezPequeño crearEspeciePequeños(int n, int velocidad) {
         PezPequeño pp = null;
         switch (n) {
@@ -177,4 +181,115 @@ public class Oceano {
         return gd;
     }
 
+    public ArrayList getPecesPequeños() {
+        int cont = 0;
+        int boquerones = 0;
+        int jureles = 0;
+        int sardinas = 0;
+        int gallos = 0;
+        int lenguados = 0;
+        int pecesTotales = 0;
+        ArrayList totalPequeños = new ArrayList();
+                
+        for (int i = 0; i < peces.size(); i++) {
+            switch (peces.get(i).getEspecie()) {
+                case "Boquerones":
+                    boquerones++;
+                    break;
+                case "Jureles":
+                    jureles++;
+                    break;
+                case "Sardinas":
+                    sardinas++;
+                    break;
+                case "Gallos":
+                    gallos++;
+                    break;
+                case "Lenguados":
+                    lenguados++;
+                    break;
+            }
+        }
+        pecesTotales = boquerones + jureles + sardinas + gallos + lenguados;
+        totalPequeños.set(1, boquerones);
+        totalPequeños.set(2, jureles);
+        totalPequeños.set(3, sardinas);
+        totalPequeños.set(4, gallos);
+        totalPequeños.set(5, lenguados);
+        totalPequeños.set(6, pecesTotales);
+        
+        return totalPequeños;
+    }
+    
+    public ArrayList getPecesGrandes() {
+        int cont = 0;
+        int atunes = 0;
+        int dorados = 0;
+        int bacalaos = 0;
+        int besugos = 0;
+        int meros = 0;
+        int pecesTotales = 0;
+        ArrayList totalGrandes = new ArrayList();
+                
+        for (int i = 0; i < peces.size(); i++) {
+            switch (peces.get(i).getEspecie()) {
+                case "Atunes":
+                    atunes++;
+                    break;
+                case "Dorados":
+                    dorados++;
+                    break;
+                case "Bacalaos":
+                    bacalaos++;
+                    break;
+                case "Besugos":
+                    besugos++;
+                    break;
+                case "Meros":
+                    meros++;
+                    break;
+            }
+        }
+        pecesTotales = atunes + dorados + bacalaos + besugos + meros;
+        totalGrandes.set(1, atunes);
+        totalGrandes.set(2, dorados);
+        totalGrandes.set(3, bacalaos);
+        totalGrandes.set(4, besugos);
+        totalGrandes.set(5, meros);
+        totalGrandes.set(6, pecesTotales);
+        
+        return totalGrandes;
+    }
+    
+    public ArrayList getDepredadores() {
+        int cont = 0;
+        int tiburonesBlancos = 0;
+        int TiburonesToro = 0;
+        int PecesEspada = 0;
+    
+        int pecesTotales = 0;
+        ArrayList totalDepredadores = new ArrayList();
+                
+        for (int i = 0; i < peces.size(); i++) {
+            switch (peces.get(i).getEspecie()) {
+                case "Voraces tiburones blancos":
+                    tiburonesBlancos++;
+                    break;
+                case "Tiburones toro":
+                    TiburonesToro++;
+                    break;
+                case "Peces espada":
+                    PecesEspada++;
+                    break;
+             
+            }
+        }
+        pecesTotales = tiburonesBlancos + TiburonesToro + PecesEspada;
+        totalDepredadores.set(1, tiburonesBlancos);
+        totalDepredadores.set(2, TiburonesToro);
+        totalDepredadores.set(3, PecesEspada);
+        totalDepredadores.set(4, pecesTotales);
+        
+        return totalDepredadores;
+    }
 }
