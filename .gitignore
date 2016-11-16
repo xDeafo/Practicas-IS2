@@ -49,3 +49,6 @@ Temporary Items
 /SLPP(Proyecto ARC)/nbproject/private/
 /SLPP(Proyecto ARC)/build/
 /Practica3/nbproject/private/
+*.class
+*.netbeans_automatic_build
+Practica3/build/classes/.netbeans_update_resources
