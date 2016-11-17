@@ -6,6 +6,13 @@
 package Vista;
 
 import Controlador.Oceano;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,12 +20,15 @@ import Controlador.Oceano;
  */
 public class Inicio extends javax.swing.JFrame {
 
+    private Oceano oc = new Oceano();
+
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         initComponents();
-        this.setSize(700,425);
+        this.setSize(700, 425);
+
     }
 
     /**
@@ -32,9 +42,9 @@ public class Inicio extends javax.swing.JFrame {
 
         btnConstruir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        lblTitulo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -49,40 +59,68 @@ public class Inicio extends javax.swing.JFrame {
         btnConstruir.setBounds(260, 220, 170, 40);
 
         jButton2.setText("CARGAR OCEANO");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(260, 280, 170, 40);
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/puertaCerrada.png"))); // NOI18N
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo-tostarica.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(250, 70, 200, 100);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/puertaCerrada.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir);
-        btnSalir.setBounds(610, 310, 44, 61);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(613, 303, 60, 70);
 
-        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/logo-tostarica.png"))); // NOI18N
-        getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(245, 60, 204, 108);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/oceano.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -50, 720, 490);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/oceano.jpg"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, -30, 740, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       System.exit(0);
-    }//GEN-LAST:event_btnSalirActionPerformed
-
     private void btnConstruirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConstruirActionPerformed
-        Oceano oc = new Oceano();
+
         Pecera pecera = new Pecera(oc);
         pecera.setVisible(true);
     }//GEN-LAST:event_btnConstruirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        leer();
+        Pecera pecera = new Pecera(oc);
+        pecera.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    //Funcion para leer los datos de mar de un fichero binario
+    public void leer() {
+
+        File myFile = new File("Oceano_guardado");
+        ObjectInputStream ois;
+        try {
+
+            ois = new ObjectInputStream(new FileInputStream(myFile));
+            oc = (Oceano) ois.readObject();
+
+        } catch (IOException e) {
+           Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, e);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -121,9 +159,9 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConstruir;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

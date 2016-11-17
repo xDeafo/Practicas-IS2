@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Controlador.Oceano;
 import Recursos.Utilidades;
 
 /**
@@ -12,7 +13,8 @@ import Recursos.Utilidades;
  * @author Ventura
  */
 public class PezGrande extends Peces{
-
+    private int probabilidadMorir = 93;
+    
     public PezGrande(int fechaNacimiento, String especie, float velocidad) {
         super(fechaNacimiento, especie);
         this.velocidad = velocidad;
@@ -37,15 +39,24 @@ public class PezGrande extends Peces{
     public boolean Morir() {
         boolean muere = false;
         int probMorir = Utilidades.CalculaRandom(0, 1000);
-        if(probMorir <= 93){
+        if(probMorir <= probabilidadMorir){
             muere = true;
         }
         return muere;
     }
 
     @Override
-    public SeresVivos Nacer() {
-        return new PezGrande(fechaNacimiento, especie, velocidad);
+    public Peces Nacer(int fecha) {
+        return new PezGrande(fecha, especie, velocidad);
     }
+
+    public void setProbabilidadMorir(int probabilidadMorir) {
+        this.probabilidadMorir = probabilidadMorir;
+    }
+
+    public int getProbabilidadMorir() {
+        return probabilidadMorir;
+    }
+    
     
 }

@@ -5,19 +5,21 @@
  */
 package Modelo;
 
-import java.util.Random;
-
 /**
  *
  * @author Ventura
  */
-public abstract class Peces extends SeresVivos{
+public abstract class Peces extends SeresVivos {
+
     protected int fechaNacimiento;
     protected float velocidad;
     protected String especie;
-    
+    protected boolean muerto;
+
     public abstract int Comer();
-    public abstract SeresVivos Nacer();
+
+    public abstract Peces Nacer(int fecha);
+
     public abstract boolean Morir();
 
     public Peces(int fechaNacimiento, String especie) {
@@ -36,6 +38,13 @@ public abstract class Peces extends SeresVivos{
     public String getEspecie() {
         return especie;
     }
-    
-    
+
+    public boolean isMuerto() {
+        return muerto;
+    }
+
+    public void setMuerto(boolean muerto) {
+        this.muerto = muerto;
+    }
+
 }

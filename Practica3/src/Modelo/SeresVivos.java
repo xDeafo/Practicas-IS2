@@ -11,18 +11,8 @@ import java.util.Random;
  *
  * @author Ventura
  */
-public abstract class SeresVivos implements Comparable<SeresVivos>{
+public abstract class SeresVivos implements java.io.Serializable{
     
     public abstract boolean Reproducirse();
     
-    @Override
-    public int compareTo(SeresVivos o){
-        if(o instanceof PezPequeño){
-            return -1;
-        }
-        if(o instanceof GranDepredador){
-            return 1;
-        }
-        return 0;
-    }
 }

@@ -14,6 +14,8 @@ import Recursos.Utilidades;
  */
 public class GranDepredador extends Peces{
 
+    private int probabilidadMorir = 28;
+    
     public GranDepredador(int fechaNacimiento, String especie) {
         super(fechaNacimiento, especie);
     }
@@ -35,18 +37,25 @@ public class GranDepredador extends Peces{
     }
 
     @Override
-    public GranDepredador Nacer() {
-        return new GranDepredador(Oceano.getDia(), especie);
+    public GranDepredador Nacer(int fecha) {
+        return new GranDepredador(fecha, especie);
     }
 
     @Override
     public boolean Morir() {
         boolean muere = false;
         int probMorir = Utilidades.CalculaRandom(0, 1000);
-        if(probMorir <= 28){
+        if(probMorir <= probabilidadMorir){
             muere = true;
         }
         return muere;
     }
     
+    public void setProbabilidadMorir(int probabilidadMorir) {
+        this.probabilidadMorir = probabilidadMorir;
+    }
+
+    public int getProbabilidadMorir() {
+        return probabilidadMorir;
+    }
 }

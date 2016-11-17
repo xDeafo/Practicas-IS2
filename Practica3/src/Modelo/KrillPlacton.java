@@ -12,30 +12,37 @@ import Recursos.Utilidades;
  *
  * @author Ventura
  */
-public class KrillPlacton extends SeresVivos{
-    private final int TEMPALTA = 19;
-    private final int TEMPOPTIMA = 18;
-    private final int TEMPBAJA = 17;
+public class KrillPlacton implements java.io.Serializable{
+    private final float TEMPALTA = 19;
+    private final float TEMPOPTIMA = 18;
+    private final float TEMPBAJA = 17;
     private double numPlacton;
 
     public KrillPlacton() {
         numPlacton = Utilidades.CalculaRandomLong(50000000000L, 70000000000L);
     }
     
-    @Override
-    public boolean Reproducirse() {
-        switch(Oceano.getTemperatura()){
-            case TEMPALTA | TEMPBAJA:
-                numPlacton += 5000000000L;
-                break;
-            case TEMPOPTIMA:
-                numPlacton += 12000000000L;
-                break;
-            default:
-                break;
+    public boolean Reproducirse(float temp) {
+        float temperatura = temp;
+        if (temperatura > TEMPALTA || temperatura < TEMPBAJA) {
+            numPlacton += 0;
+        } else if (temperatura == TEMPALTA || temperatura == TEMPBAJA) {
+            numPlacton += 5000000000l;
+        } else {
+            numPlacton += 12000000000l;
         }
         
         return true;
     }
+
+    public double getNumPlacton() {
+        return numPlacton;
+    }
+
+    public void setNumPlacton(double numPlacton) {
+        this.numPlacton = numPlacton;
+    }
+    
+    
     
 }
